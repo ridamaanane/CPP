@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 #include <stdlib.h>
+#include <string.h>
+            #include <stdio.h>
+
 
 
 
@@ -65,7 +68,12 @@ int main()
                 std::cout << "Enter a valid name" << std::endl;
                 continue;
             }
-
+            std::string a("testing");
+            char *b = strdup(a.c_str());
+            while (*b)
+            {
+                printf("%c", *b++);
+            }
             while (true)
             {
                 std::cout << "Enter Phone Number: ";

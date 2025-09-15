@@ -11,7 +11,7 @@ PhoneBook::PhoneBook()
 
 void PhoneBook::AddContact(Contact c)
 {
-    if (contact_count < 8)
+    if (contact_count < 8) //not required the second enough
     {
         contacts[contact_count] = c;
         contact_count++;
