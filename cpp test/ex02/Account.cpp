@@ -118,5 +118,4 @@ Account::~Account( void )
     std::cout << "index:" << _accountIndex << ";";
     std::cout << "amount:" << _amount << ";";
     std::cout << "closed" << std::endl;
-
 }
