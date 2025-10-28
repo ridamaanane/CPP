@@ -1,7 +1,7 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Account.cpp tests.cpp
+SRC = Account2.cpp tests.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
