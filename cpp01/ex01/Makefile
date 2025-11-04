@@ -1,7 +1,7 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+SRC = Zombie.cpp zombieHorde.cpp main.cpp 
 
 OBJ = $(SRC:%.cpp=%.o)
 

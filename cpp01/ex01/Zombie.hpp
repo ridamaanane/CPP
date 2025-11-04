@@ -9,8 +9,9 @@ class Zombie
     private:
         std::string _name;
     public:
+        Zombie(); //in subject we will create N zombies automatically — but it does not know the name yet.
         ~Zombie();
-        Zombie(std::string name);
+        void setName(std::string name);
         void announce( void );
 };
 
