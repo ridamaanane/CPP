@@ -1,11 +1,11 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = Weapon
+NAME = file
 RM = rm -f
 
 all: $(NAME)
