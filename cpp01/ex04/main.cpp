@@ -45,7 +45,6 @@ int main(int ac, char **av)
             line.replace(pos, s1.length(), s2);
             pos = line.find(s1, pos + s2.length());
         }
-
         output << line << std::endl; //write directly to the file
     }
     input.close(); 
