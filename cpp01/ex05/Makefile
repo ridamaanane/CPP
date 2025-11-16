@@ -1,11 +1,11 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = readFile
+NAME = funcPtr
 RM = rm -f
 
 all: $(NAME)

@@ -21,5 +21,23 @@ void Harl::error()
 
 void Harl::complain( std::string level )
 {
-    
+    std::string levels[4] = {"DEBUG","INFO","WARNING","ERROR"};
+
+    void (Harl::*funcPtr[4])() =
+    {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
+
+    for (int i = 0; i <= 3; i++)
+    {
+        if (levels[i] == level)
+        {
+            (this->*funcPtr[i])();
+            return ;
+        }
+    }
+    std::cout << "Invalid level" << std::endl;
 }
