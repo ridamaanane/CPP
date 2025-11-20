@@ -7,22 +7,25 @@
 PhoneBook::PhoneBook()
 {
     contact_count = 0;
+    index = 0;
 }
 
 void PhoneBook::AddContact(Contact c)
 {
-    if (contact_count < 8) //not required the second enough
+    if (index < 8)
     {
-        contacts[contact_count] = c;
-        contact_count++;
+        contacts[index] = c;
+        if (contact_count < 8)
+            contact_count++;
+        index++;
     }
     else
     {
-        contacts[contact_count % 8] = c;
-        contact_count++;
+        index = 0;
+        contacts[index] = c;
+        index++;
     }
     std::cout << "Contact added Successfully ✅." << std::endl;
-
 }
 
 
@@ -42,7 +45,7 @@ void PhoneBook::SearchContacts()
         std::cout << "PhoneBook is empty" << std::endl;
         return;
     }
-
+    //setw(10) Print the next thing using a width of 10 characters
     std::cout << std::setw(10) << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
               << std::setw(10) << "Last Name" << "|"
@@ -59,25 +62,32 @@ void PhoneBook::SearchContacts()
     while (true)
     {
         std::string input;
-        std::cout << "Enter index: ";
+        std::cout << "Enter index (-1 to exit): ";
         std::getline(std::cin, input);
 
         int index;
-        std::stringstream ss(input);
-        ss >> index;
+        std::stringstream ss(input); 
 
         if (std::cin.eof()) // CTRL+D -> exit loop
             break;
-        
+
+        if (!(ss >> index)) //ss >> index; //converion to int happens
+        {
+            std::cout << "Enter a valid index!" << std::endl;
+            continue;
+        }
+
         if (input.empty())
         {
             std::cout << "Index cannot be empty!" << std::endl;
         }
-        else if (index < contact_count)
-            DisplayContact(index);
+        else if (index == -1)
+            break;
+        else if (index >= 0 && index < contact_count)
+            DisplayContact(index);    
         else
         {
-            std::cout << "You have only 8 Contacts" << std::endl;
+            std::cout << "Please enter a valid index." << std::endl;
             continue;
         }
     }

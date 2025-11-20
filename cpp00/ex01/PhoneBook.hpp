@@ -9,6 +9,7 @@ class PhoneBook
     private:
         Contact contacts[8];
         int contact_count;
+        int index;
 
     public:
         PhoneBook();
@@ -16,6 +17,5 @@ class PhoneBook
         void DisplayContact(int index);
         void SearchContacts();
 };
-
 
 #endif

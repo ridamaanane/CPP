@@ -5,7 +5,7 @@
 #include <sstream>
 #include <stdlib.h>
 #include <string.h>
-            #include <stdio.h>
+#include <stdio.h>
 
 
 
@@ -68,12 +68,6 @@ int main()
                 std::cout << "Enter a valid name" << std::endl;
                 continue;
             }
-            std::string a("testing");
-            char *b = strdup(a.c_str());
-            while (*b)
-            {
-                printf("%c", *b++);
-            }
             while (true)
             {
                 std::cout << "Enter Phone Number: ";
@@ -89,8 +83,8 @@ int main()
                     continue;
                 }
                 int convert = atoi(c.getPhoneNumber().c_str());
-                // std::stringstream ss(c.getPhoneNumber());
-                // ss >> convert;
+                std::stringstream ss(c.getPhoneNumber());
+                ss >> convert;
                 if (convert == 0)
                 {
                     std::cout << "Enter a valid phone number" << std::endl;
@@ -135,3 +129,21 @@ int main()
     }
 }
 
+// int main()
+// {
+//     Contact phone;
+
+//     phone.setFirstName("rida");
+
+//     std::cout << phone.getFirstName() << std::endl;
+
+
+
+//     std::string rida = phone.getFirstName();
+
+//     rida[0] = 's';
+
+//     std::cout << phone.getFirstName() << std::endl;
+
+//     std::cout << rida;  
+// }
