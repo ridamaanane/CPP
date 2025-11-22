@@ -1,9 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmaanane <ridamaanane@gmail.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 18:23:16 by rmaanane          #+#    #+#             */
+/*   Updated: 2025/11/17 18:23:16 by rmaanane         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include <iostream>
+#include <cctype>
+
 
 int main(int ac, char **av)
 {
     if (ac == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
     else
     {
         int i = 1;
@@ -13,8 +28,8 @@ int main(int ac, char **av)
             j = 0;
             while (av[i][j])
             {
-                if (islower(av[i][j]))
-                    std::cout << char(toupper(av[i][j]));
+                if (std::islower(av[i][j]))
+                    std::cout << char(std::toupper(av[i][j]));                    
                 else
                     std::cout << av[i][j];
                 j++;        
@@ -25,3 +40,5 @@ int main(int ac, char **av)
     }
     std::cout << std::endl;
 }
+
+

@@ -55,7 +55,6 @@ int main()
             c.setDarkestSecret(getValidInput("Enter Darkest Secret: "));
             phonebook.AddContact(c);
         }
-
         else if (command == "SEARCH")
             phonebook.SearchContacts();
         else if (command == "EXIT")
