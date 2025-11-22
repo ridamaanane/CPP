@@ -6,25 +6,28 @@
 /*   By: rmaanane <ridamaanane@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 18:33:18 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/11/22 18:33:20 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/11/22 20:15:56 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
-Zombie::Zombie(std::string name)
+Zombie::Zombie() //default constructor 
 {
-    _name = name;
+    name = "Default_Zombie";
 }
 
-void Zombie::announce( void )
+Zombie::Zombie(std::string name) //constructor with parameter
 {
-    std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    this->name = name;
+}
+
+void Zombie::announce(void)
+{
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << _name << ": is destroyed" << std::endl;
+    std::cout << name << ": is destroyed" << std::endl;
 }
-

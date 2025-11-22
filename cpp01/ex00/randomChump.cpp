@@ -6,7 +6,7 @@
 /*   By: rmaanane <ridamaanane@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 18:33:11 by rmaanane          #+#    #+#             */
-/*   Updated: 2025/11/22 18:33:13 by rmaanane         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:51:04 by rmaanane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void randomChump(std::string name)
 {
-    Zombie z(name); //z objet
+    Zombie z(name); //z object
     z.announce();
 }
