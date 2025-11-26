@@ -14,7 +14,7 @@
 
 Weapon::Weapon(std::string type)
 {
-    this->type = type; //or you can rename the parameter, because this-> mean the name of varible in the private 
+    this->type = type;
 }
 
 void Weapon::setType(const std::string &newtype)
@@ -22,7 +22,7 @@ void Weapon::setType(const std::string &newtype)
     type = newtype;
 }
 
-const  std::string &Weapon::getType() const //& we put it after the type not the class
+const  std::string &Weapon::getType() const
 {
     return (type);
 }
