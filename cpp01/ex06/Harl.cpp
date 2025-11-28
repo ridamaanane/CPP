@@ -62,25 +62,19 @@ void Harl::complain( std::string level )
         }
     }
 
-    // fall through >> tell the compiler , Yes, I know there is no break
-
     switch (index)
     {
         case 0:
             (this->*funcPtr[0])();
-            // fall through
             case 1:
             (this->*funcPtr[1])();
-            // fall through
         case 2:
             (this->*funcPtr[2])();
-            // fall through
         case 3:
             (this->*funcPtr[3])();
             break;
         default:
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
             break;
-    
     }
 }

@@ -18,7 +18,7 @@ int main(int ac, char **av)
 {
     if (ac != 4)
     {
-        std::cout << "Error not enough arguments" << std::endl;
+        std::cerr << "Error not enough arguments" << std::endl;
         return (1);
     }
     std::string filename = av[1];
@@ -31,31 +31,30 @@ int main(int ac, char **av)
         return (1);
     }
     /*
-    input = the file you are reading from   
-    output = the file you will write to
+    input = file stream you are reading from   
+    output = file stream you will write to
     */
 
     std::ifstream input(filename.c_str());
     if (!input.is_open())
     {
-        std::cout << "failed to open the file" << std::endl;
+        std::cerr << "failed to open the file" << std::endl;
         return (1);
     }
     std::ofstream output((filename + ".replace").c_str());
-    if (!output.is_open())
+    if (!output.is_open()) 
     {
-        std::cout << "failed to create the file" << std::endl;
+        std::cerr << "failed to create the file" << std::endl;
         return (1);
     }
     std::string line;
-    size_t pos; //std::string::find() returns size_t, so using the same type avoids warnings or errors.
-    while (getline(input, line)) //Read one line from the file input, Store it into the variable line
+    size_t pos; //find() returns size_t, so using the same type avoids errors
+    while (getline(input, line))
     {
-        pos = line.find(s1);
-        while (pos != std::string::npos)
+        while ((pos = line.find(s1)) != std::string::npos)
         {
-            line.replace(pos, s1.length(), s2);
-            pos = line.find(s1, pos + s2.length());
+            line.erase(pos, s1.length());
+            line.insert(pos, s2);
         }
         output << line << std::endl; //write directly to the file
     }
