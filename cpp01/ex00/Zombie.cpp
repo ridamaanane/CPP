@@ -12,12 +12,12 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() //default constructor 
+Zombie::Zombie()
 {
     name = "Default_Zombie";
 }
 
-Zombie::Zombie(std::string name) //constructor with parameter
+Zombie::Zombie(std::string name)
 {
     this->name = name;
 }

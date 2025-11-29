@@ -16,12 +16,12 @@
 
 HumanB::HumanB(std::string name)
 {
-    this->name = name; //this-> tells C++: “I mean the object’s member, not the parameter.”
-    this->weapon = NULL; // no weapon yet
+    this->name = name;
+    this->weapon = NULL;
 }
-void HumanB::setWeapon(Weapon &weapon) //&weapon refference not address
+void HumanB::setWeapon(Weapon &weapon)
 {
-    this->weapon = &weapon; //means “the address of the weapon object that was passed”. , without it mean only the value
+    this->weapon = &weapon;
 }
 
 void HumanB::attack()

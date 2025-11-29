@@ -14,17 +14,13 @@
 
 int main()
 {
-    Zombie *z1 = zombieHorde(3, "rida"); // Each element of 3 is a Zombie object.
+    Zombie *z1 = zombieHorde(3, "rida");
     for (int i = 0; i < 3; i++)
     {
-        z1[i].setName("maanane"); //"->"" works on a pointer to a single object , but now we have array
-    }
-    for (int i = 0; i < 3; i++)
-    {
-        z1[i].announce(); // Purpose of announce() Every zombie introduces itself / prints a message
+        z1[i].announce();
     }
 
-    delete[] z1; // deallocates the array
+    delete[] z1;
 
     std::cout << "enf of main" << std::endl;
 }

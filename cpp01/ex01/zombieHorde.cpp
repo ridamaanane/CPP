@@ -14,13 +14,13 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
-    int i = 0;
-    Zombie* horde = new Zombie[N];   // creates array of N zombies
+    Zombie* horde = new Zombie[N];
     if (!horde)
         return NULL;
+    int i = 0;
     while (i < N)
     {
-        horde[i].setName(name); // assign name to each zombie
+        horde[i].setName(name);
         i++;
     }
     return (horde);

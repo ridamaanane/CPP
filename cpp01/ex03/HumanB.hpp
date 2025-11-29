@@ -11,8 +11,6 @@ class HumanB
         Weapon *weapon;
     public:
         HumanB(std::string name);
-        //HumanB does not always have a weapon.
-        // That means the constructor should only take the name, and the weapon should be set later using a setWeapon() function.
         void setWeapon(Weapon &weapon);
         void attack();
 
