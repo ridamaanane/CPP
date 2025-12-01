@@ -1,11 +1,11 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
+SRC = Fixed.cpp main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = Zombie
+NAME = Orthodox_Canonical_Form
 RM = rm -f
 
 all: $(NAME)

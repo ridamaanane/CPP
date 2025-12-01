@@ -14,7 +14,8 @@
 
 void Harl::debug()
 {
-    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;}
+    std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
+}
 
 void Harl::info()
 {
@@ -42,7 +43,11 @@ void Harl::complain( std::string level )
         &Harl::warning,
         &Harl::error
     };
-
+    /*
+    std::cout << sizeof(funcPtr[0]) << std::endl; //funcPtr[0] is a pointer to a member function, not a regular function pointer. 
+    A normal function pointer on 64-bit = 8 bytes (just an address) , 
+    but here is 16bytes, object_base_pointer 8 bytes and 8 bytes of the pointer of array
+    */
     for (int i = 0; i <= 3; i++)
     {
         if (levels[i] == level)
