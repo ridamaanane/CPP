@@ -3,16 +3,22 @@
 Fixed::Fixed()
 {
     std::cout << "Default Constructor Called" << std::endl;
-    rawBits = 0;
+    // rawBits = 0;
 }
 
 Fixed::Fixed(const Fixed &object)
 {
     std::cout << "Copy Constructor Called" << std::endl;
-    this->rawBits = object.getRawBits(); //"this" to access to the current object , without it maybe the compiler can think the variable is local
+    *this = object; //"this" to access to the current object , without it maybe the compiler can think the variable is local
+    //the purpose of this line for calling the copy assignment" 
+
+    /*
+        So the copy constructor does NOT copy anything directly
+        It delegates the job to the copy assignment operator.
+    */
 }
 
-Fixed& Fixed::operator=(const Fixed& other)
+Fixed& Fixed::operator=(const Fixed& other) //If you didn’t write it yet → the compiler’s default assignment operator is used.
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)

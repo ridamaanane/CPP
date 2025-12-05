@@ -5,7 +5,7 @@ SRC = Fixed.cpp main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = orthodox_Canonical_Form
+NAME = Fixed_Point
 RM = rm -f
 
 all: $(NAME)

@@ -3,13 +3,13 @@
 Fixed::Fixed()
 {
     std::cout << "Default Constructor Called" << std::endl;
-    rawBits = 0;
+    value = 0;
 }
 
 Fixed::Fixed(const Fixed &object)
 {
     std::cout << "Copy Constructor Called" << std::endl;
-    this->rawBits = object.getRawBits(); //"this" to access to the current object , without it maybe the compiler can think the variable is local
+    *this = object; //"*this" to access to the current object , purpose calls the assignment operator (the logic of operator '=')
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
@@ -17,21 +17,56 @@ Fixed& Fixed::operator=(const Fixed& other)
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        this->rawBits = other.getRawBits(); //take the internal value from other and put it in this object
+        this->value = other.getRawBits(); //take the internal value from other and put it in this object
         return (*this);
     }
     return (*this);
 }
 
-void Fixed::setRawBits( int const raw )
+Fixed::Fixed(int value)
 {
-    rawBits = raw;
+    std::cout << "Int constructor called" << std::endl;
+    this->value =  value << fractionalBits;
+}
+
+Fixed::Fixed(float value)
+{
+    std::cout << "Float constructor called" << std::endl;
+
+    this->value = roundf(value * 256);
+}
+
+void Fixed::setRawBits( int const value )
+{
+    this->value = value;
 }
 
 int Fixed::getRawBits( void ) const
 {   
-    std::cout << "getRawBits member function called" << std::endl;
-    return (rawBits);
+    return (value);
+}
+
+int Fixed::toInt( void ) const
+{
+    return (value >> fractionalBits);
+}
+
+float Fixed::toFloat( void ) const
+{
+    return (getRawBits() / 256.0f);
+
+    /*
+    Both numbers are integers → C++ does integer division → result is 10, NOT 10.5
+    To fix it, divide by float 256.0f
+    Now C++ treats it as floating-point division → result = 10.5
+    */
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj)
+{
+    os << obj.toFloat();
+
+    return (os);
 }
 
 Fixed::~Fixed()
