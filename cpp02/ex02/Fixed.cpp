@@ -2,19 +2,16 @@
 
 Fixed::Fixed()
 {
-    std::cout << "Default Constructor Called" << std::endl;
     value = 0;
 }
 
 Fixed::Fixed(const Fixed &object)
 {
-    std::cout << "Copy Constructor Called" << std::endl;
     *this = object; //"*this" to access to the current object , purpose calls the assignment operator (the logic of operator '=')
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
     {
         this->value = other.getRawBits(); //take the internal value from other and put it in this object
@@ -25,14 +22,11 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::Fixed(int value)
 {
-    std::cout << "Int constructor called" << std::endl;
     this->value =  value << fractionalBits;
 }
 
 Fixed::Fixed(float value)
 {
-    std::cout << "Float constructor called" << std::endl;
-
     this->value = roundf(value * 256);
 }
 
@@ -53,26 +47,16 @@ int Fixed::toInt( void ) const
 
 float Fixed::toFloat( void ) const
 {
-    return (getRawBits() / 256.0f);
-
-    /*
-    Both numbers are integers → C++ does integer division → result is 10, NOT 10.5
-    To fix it, divide by float 256.0f
-    Now C++ treats it as floating-point division → result = 10.5
-    */
+    return (value / 256.0f);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
     os << obj.toFloat();
-
     return (os);
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor Called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 // arithmetic operators
 Fixed Fixed::operator+(const Fixed& other) const
@@ -95,7 +79,7 @@ Fixed Fixed::operator*(const Fixed& other) const
 {
     Fixed result;
 
-    result.setRawBits(this->value * other.value); 
+    result.setRawBits((this->value * other.value) >> fractionalBits);
     return (result);
 }
 
@@ -103,7 +87,7 @@ Fixed Fixed::operator/(const Fixed& other) const
 {
     Fixed result;
 
-    result.setRawBits(this->value / other.value); 
+    result.setRawBits((this->value << fractionalBits) / other.value); 
     return (result);
 }
 
@@ -174,4 +158,24 @@ Fixed Fixed::operator--(int)
     Fixed old(*this);
     this->value--;
     return (old);
+}
+
+Fixed& Fixed::min(Fixed &a, Fixed &b)
+{
+    return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
+{
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed &a, Fixed &b)
+{
+    return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed &a, const Fixed &b)
+{
+    return (a > b) ? a : b;
 }
