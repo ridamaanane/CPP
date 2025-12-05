@@ -7,10 +7,10 @@ Fixed::Fixed()
 
 Fixed::Fixed(const Fixed &object)
 {
-    *this = object; //"*this" to access to the current object , purpose calls the assignment operator (the logic of operator '=')
+    *this = object;
 }
 
-Fixed& Fixed::operator=(const Fixed& other)
+Fixed& Fixed::operator=(const Fixed& other) //need to understand it
 {
     if (this != &other)
     {
@@ -22,7 +22,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::Fixed(int value)
 {
-    this->value =  value << fractionalBits;
+    this->value =  value << fractionalBits; //Bit shifts work ONLY with integers
 }
 
 Fixed::Fixed(float value)
@@ -58,7 +58,6 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 
 Fixed::~Fixed() {}
 
-// arithmetic operators
 Fixed Fixed::operator+(const Fixed& other) const
 {
     Fixed result;
@@ -91,7 +90,6 @@ Fixed Fixed::operator/(const Fixed& other) const
     return (result);
 }
 
-// comparison operators
 bool Fixed::operator>(const Fixed& other) const
 {
     if (this->value > other.value)
