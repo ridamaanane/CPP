@@ -10,11 +10,11 @@ Fixed::Fixed(const Fixed &object)
     *this = object;
 }
 
-Fixed& Fixed::operator=(const Fixed& other) //need to understand it
+Fixed& Fixed::operator=(const Fixed& other)
 {
     if (this != &other)
     {
-        this->value = other.getRawBits(); //take the internal value from other and put it in this object
+        this->value = other.getRawBits();
         return (*this);
     }
     return (*this);
@@ -22,7 +22,7 @@ Fixed& Fixed::operator=(const Fixed& other) //need to understand it
 
 Fixed::Fixed(int value)
 {
-    this->value =  value << fractionalBits; //Bit shifts work ONLY with integers
+    this->value =  value << fractionalBits;
 }
 
 Fixed::Fixed(float value)
@@ -62,7 +62,7 @@ Fixed Fixed::operator+(const Fixed& other) const
 {
     Fixed result;
 
-    result.setRawBits(this->value + other.value); //result object now contains the sum.
+    result.setRawBits(this->value + other.value);
     return (result);
 }
 
@@ -131,18 +131,18 @@ bool Fixed::operator!=(const Fixed& other) const
         return (true);
     return (false);
 }
-//increment && decrement
-Fixed& Fixed::operator++() //pre increment    
+
+Fixed& Fixed::operator++() 
 {
     this->value++;
     return (*this);
 }
 
-Fixed Fixed::operator++(int)  //Post-increment   (The int is never used, it’s only a marker) (we pass by value for safely , the refference here pass the old object , but we don't need that when fucntion end the old destroyed , You would be returning a reference to destroyed memory )
+Fixed Fixed::operator++(int)
 {
-    Fixed old(*this); //copy and store it in old
+    Fixed old(*this);
     this->value++;
-    return (old); //You return the "photo" (copy), not the real object
+    return (old);
 }
 
 Fixed& Fixed::operator--()        
@@ -151,7 +151,7 @@ Fixed& Fixed::operator--()
     return (*this);
 }
 
-Fixed Fixed::operator--(int)
+Fixed Fixed::operator--(int) //int differentiates postfix from prefix
 {
     Fixed old(*this);
     this->value--;
