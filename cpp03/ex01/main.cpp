@@ -1,14 +1,33 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+
 #include <iostream>
 
 int main()
 {
-    ClapTrap a("Rida");
+    // ScavTrap a("Rida");
+    // a.attack("Enemy");
+    // a.takeDamage(30);
+    // a.beRepaired(5);
+    // a.guardGate();
 
-    a.attack("Enemy");
-    a.takeDamage(10);
-    a.beRepaired(3);
+    ScavTrap b("Hassan");
+    b.attack("Enemy");
+    b.takeDamage(10);
+    b.beRepaired(0);
+    b.guardGate();
 
-    a.takeDamage(20);
-    a.beRepaired(7);
+    // ScavTrap c(a);
+    // c.attack("Enemy");
+    // c.takeDamage(200);
+    // c.beRepaired(100);
+    // c.guardGate();
+
+
+    ScavTrap d;
+    d = b;
+    d.attack("Enemy");
+    d.takeDamage(-30);
+    d.beRepaired(30);
+    d.guardGate();
 }

@@ -3,7 +3,7 @@
 ClapTrap::ClapTrap()
 {
     std::cout << "Default Constructed Called" << std::endl;
-    name = "Default";
+    name = "Default Name of Claptrap";
     hitPoints = 10;
     energyPoints = 10;
     attackDamage = 0;
@@ -35,6 +35,8 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 
 ClapTrap& ClapTrap::operator = (const ClapTrap& other)
 {
+    std::cout << "ClapTrap Copy assignment operator called" << std::endl;
+
     if (this != &other)
     {
         name = other.name;
