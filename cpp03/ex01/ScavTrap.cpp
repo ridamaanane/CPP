@@ -10,19 +10,20 @@ ScavTrap::ScavTrap() : ClapTrap()
 }
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
-    hitPoints = 10;
-    energyPoints = 10;
-    attackDamage = 0;
+    std::cout << "ScavTrap default Constructed Called" << std::endl;
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Destroyed! Called" << std::endl;
+    std::cout << "ScavTrap destructor! Called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
-    std::cout << "Copy ScavTrap Called" << std::endl;
+    std::cout << "ScavTrap Copy Called" << std::endl;
 }
 
 

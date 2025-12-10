@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default Constructed Called" << std::endl;
+    std::cout << "ClapTrap Default Constructed Called" << std::endl;
     name = "Default Name of Claptrap";
     hitPoints = 10;
     energyPoints = 10;
@@ -11,6 +11,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const std::string &name) : name(name)
 {
+    std::cout << "ClapTrap Default Constructed Called" << std::endl;
     hitPoints = 10;
     energyPoints = 10;
     attackDamage = 0;
@@ -18,13 +19,13 @@ ClapTrap::ClapTrap(const std::string &name) : name(name)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap Destroyed! Called" << std::endl;
+    std::cout << "ClapTrap destructor! Called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
 
-    std::cout << "Copy Constructed Called" << std::endl;
+    std::cout << "ClapTrap Copy Constructed Called" << std::endl;
 
     name = other.name;
     hitPoints = other.hitPoints;

@@ -11,7 +11,7 @@ int main()
     // a.beRepaired(5);
     // a.guardGate();
 
-    ScavTrap b("Hassan");
+    ScavTrap b("maanane");
     b.attack("Enemy");
     b.takeDamage(10);
     b.beRepaired(0);
@@ -27,7 +27,7 @@ int main()
     ScavTrap d;
     d = b;
     d.attack("Enemy");
-    d.takeDamage(-30);
+    d.takeDamage(30);
     d.beRepaired(30);
     d.guardGate();
 }
