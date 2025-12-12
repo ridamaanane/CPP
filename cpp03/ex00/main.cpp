@@ -4,11 +4,13 @@
 int main()
 {
     ClapTrap a("Rida");
-
-    a.attack("Enemy");
+    a.attack("Target");
     a.takeDamage(10);
     a.beRepaired(3);
 
-    a.takeDamage(20);
-    a.beRepaired(7);
+    ClapTrap b;
+    b.attack("Target");
+    b.takeDamage(5);
+    b.beRepaired(10);
+
 }

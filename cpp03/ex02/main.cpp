@@ -11,14 +11,12 @@ int main()
     a.beRepaired(5);
     a.highFivesGuys();
 
-    FragTrap b("maanane");
+    FragTrap b("Maanane");
     b.takeDamage(10);
     b.beRepaired(0);
 
     FragTrap c(a);
-    c.takeDamage(200);
-    c.beRepaired(100);
-
+    c.highFivesGuys();
 
     FragTrap d;
     d = b;

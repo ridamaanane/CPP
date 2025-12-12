@@ -11,7 +11,6 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const std::string &name) : name(name)
 {
-    std::cout << "ClapTrap Default Constructed Called" << std::endl;
     hitPoints = 10;
     energyPoints = 10;
     attackDamage = 0;

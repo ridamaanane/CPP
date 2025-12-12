@@ -11,7 +11,6 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const std::string &name) : name(name)
 {
-    std::cout << "ClapTrap Default Constructed Called" << std::endl;
     hitPoints = 10;
     energyPoints = 10;
     attackDamage = 0;
@@ -19,7 +18,7 @@ ClapTrap::ClapTrap(const std::string &name) : name(name)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap destructor! Called" << std::endl;
+    std::cout << "ClapTrap [" << name << "] destructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -34,7 +33,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 }
 
 
-ClapTrap& ClapTrap::operator = (const ClapTrap& other)
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
     std::cout << "ClapTrap Copy assignment operator called" << std::endl;
     if (this != &other)
@@ -46,7 +45,6 @@ ClapTrap& ClapTrap::operator = (const ClapTrap& other)
     }
     return (*this);
 }
-
 
 void ClapTrap::attack(const std::string& target)
 {
