@@ -1,11 +1,11 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
+SRC = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = Brain
+NAME = Smart_Animal
 RM = rm -f
 
 all: $(NAME)
